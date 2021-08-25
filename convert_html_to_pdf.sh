@@ -1,5 +1,6 @@
 #!/bin/bash 
-
+#Converts a directory of html files in to pdfs.
+# Justin Phelps 20210825
 function usage {
 	echo "Batch converts html docs to pdf"
 	echo "usage $0 input_directory output_directory"
