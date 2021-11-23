@@ -1,0 +1,4 @@
+#lines per for all commits by user
+git ls-files | while read f; do git blame -w -M -C -C --line-porcelain $f | grep '^author '; done | sort -f | uniq -ic | sort -n
+#alias to create 'git count-lines' that will count lines for a single user
+git config --global alias.count-lines "! git log --author=\"\$1\" --pretty=tformat: --numstat | awk '{ add += \$1; subs += \$2; loc += \$1 - \$2 } END { printf \"added lines: %s, removed lines: %s, total lines: %s\n\", add, subs, loc }' #"
